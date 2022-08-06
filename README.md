@@ -1,5 +1,11 @@
 # Millenium-Falcon-Problem-Flask
 
+## Description
+
+## Implementation
+
+* Python
+* Flask
 
 ## How to run
 
@@ -8,7 +14,7 @@
 give-me-odds.py "./examples/example1/millennium-falcon.json" "./examples/example1/empire.json"
 ```
 
-### Web APP
+### Web App
 ```bash
 (venvmf) app.py run
 ```
