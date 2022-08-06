@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/images/apple-icon-180x180.png">
+  <link href="./static/images/favicon-rocket.png" rel="icon">
+
+  <title>What are the odds?</title>  
+
+<link href="./static/css/main.3f6952e4.css" rel="stylesheet">
+<link href="./static/css/bbutton.css" rel="stylesheet"></head>
+
+<body class="minimal">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+<!-- Add your content of header -->
+<header>
+  <nav class="navbar  navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ">
+          <li><a href="./home" title="">01 : Home</a></li>
+          <li><a href="./about" title="">02 : About Project</a></li>
+        </ul>
+
+
+      </div> 
+    </div>
+  </nav>
+</header>
+<!-- Add your site or app content here -->
+  <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./static/images/spacev3.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="hero-full-wrapper">
+            <div class="text-content">
+              <h1>Welcome,<br>
+                <span id="typed-strings">
+                  <span>on board!</span>
+                  <span>Please, upload</span>
+                  <span>the plans of Empire</span>
+                </span>
+                <span id="typed"></span>
+              </h1>
+              <p style="font-size:250%;"><b style="color: white;">{{ value }} <b></p>
+                <label for="actual-btn" style="font-size:160%;"><b style="color: white;"> Upload <b></label>
+                <form action = "http://localhost:5000/home"  method = "POST" enctype = "multipart/form-data" hidden>
+                <input type = "file" id="actual-btn" onchange="this.form.submit()" name = "file" /> 
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     type();
+     movingBackgroundImage();
+  });
+</script>
+
+
+<script type="text/javascript" src="./static/css/main.70a66962.js"></script></body>
+
+</html>
