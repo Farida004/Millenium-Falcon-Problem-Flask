@@ -14,7 +14,7 @@ For the following task Python programming language and Flask microframework were
 
 ### CLI
 ```bash
-give-me-odds.py "./examples/example1/millennium-falcon.json" "./examples/example1/empire.json"
+give-me-the-odds.py "./examples/example1/millennium-falcon.json" "./examples/example1/empire.json"
 ```
 
 ### Web App
