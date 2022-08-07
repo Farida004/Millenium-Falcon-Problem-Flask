@@ -1,35 +1,28 @@
 from collections import defaultdict
   
-# This class represents a directed graph
-# using adjacency list representation
+''' This class represents a millennium falcon with a path (directed graph) '''
 class Millennium_Falcon:
   
     def __init__(self,autonomy):
-        # default dictionary to store graph
         self.map = defaultdict(list)
         self.num_of_days = {}
         self.autonomy = autonomy
         self.complete_paths = []
-  
-    # function to add an edge to graph
+    ''' A Fucntion that adds a route to a path (edge to a graph)'''
     def addRoute(self, u, v, weight):
         self.map[u].append(v)
         self.num_of_days[(u, v)] = weight
   
-    '''A recursive function to print all paths from 'u' to 'd'.
-    visited[] keeps track of vertices in current path.
-    path[] stores actual vertices and path_index is current
-    index in path[]'''
+    '''A recursive function that generates all paths from 'source planet' to 'destination planet'.
+    visited[] keeps track of planets in current path.
+    path[] stores actual planets. Complete paths stores all the possible paths found.'''
     def find_all_paths(self, departure, arrival, countdown, visited, path ):
  
-        # Mark the current node as visited and store in path
         visited = set()
         path.append(departure)
         visited.add(departure)
         complete_paths=[]
  
-        # If current vertex is same as destination, then print
-        # current path[]
         if departure == arrival :
             travel_time = self.getTime(path)
             if(travel_time> countdown):
@@ -38,22 +31,17 @@ class Millennium_Falcon:
               print(f"Found path: {path}")
               self.complete_paths.append(path.copy())
         else:
-            # If current vertex is not destination
-            # Recur for all the vertices adjacent to this vertex
             for i in self.map[departure]:
                 if i not in visited:
                     self.find_all_paths(i, arrival, countdown, visited, path) 
         path.pop()
   
-    # Prints all paths from 's' to 'd'
+    ''' This function prints the calculated probability based on the paths found '''
     def print_all_paths(self, departure, arrival, countdown, bounty_hunters_info):
-        # Mark all the vertices as not visited
         visited =[]
-        # Create an array to store paths
         path = []
 
         probabilities = []
-        # Call the recursive helper function to print all paths
         self.find_all_paths(departure, arrival, countdown, visited, path)
         for i in self.complete_paths:
           probabilities.append(self.calculateProbability(i, bounty_hunters_info))
@@ -62,6 +50,7 @@ class Millennium_Falcon:
         else:
           return 0
 
+    ''' This function computes the total days spent on the flight from source to destination taking into account the fueling needs.'''
     def getTime(self,path):
       total_days = 0
       fuel_status = self.autonomy
@@ -76,6 +65,7 @@ class Millennium_Falcon:
           fuel_status -= next_hop_in_days
       return total_days
 
+    ''' This function calculates the probability based on the paths found and the schedule of bounting hunters '''
     def calculateProbability(self,path,bounty_hunters_info):
       probability = 0
       cnt_refuel_hunters = 0
@@ -97,6 +87,7 @@ class Millennium_Falcon:
           probability+=((9**(cnt-1)/(10**cnt)))
       return int((1-probability)*100)
 
+    ''' This function allows to get the detailed information of the flight. We see the planets we are going to visit and when.'''
     def get_detailed_path_info(self, path):
         travel_plan = []
         total_days = 0

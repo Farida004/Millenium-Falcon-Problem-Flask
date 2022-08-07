@@ -21,4 +21,7 @@ give-me-the-odds.py "./examples/example1/millennium-falcon.json" "./examples/exa
 ```bash
 (venvmf) app.py run
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> 306c4b7 (comments added)
